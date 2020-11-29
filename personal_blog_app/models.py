@@ -15,3 +15,6 @@ class Post(models.Model):
     content = models.TextField()
     status = models.IntegerField(choices=STATUS, default=0)
     slug = models.SlugField(max_length=200, unique=True)
+
+    def __str__(self) -> str:
+        return self.title
