@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-def env(key: str) -> str:
+def get_env(key: str) -> str:
     value = getenv(key)
     if value is None:
         raise EnvironmentError(f'The key with name {key} was not found in the env')
