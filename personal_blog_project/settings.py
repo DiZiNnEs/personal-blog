@@ -15,7 +15,7 @@ SECRET_KEY = '+43=j7d%z@#k%ljb^s!t__skkq9msx80scu*-75cm%&8n_e-r!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [get_env('ALLOWED_HOST_1'), get_env('ALLOWED_HOST_2')]
 
 # Application definition
 
