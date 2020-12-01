@@ -11,4 +11,16 @@ class PostsSerializer(serializers.ModelSerializer):
         fields = ['title',
                   'publication_date',
                   'author',
-                  'content']
+                  'status', ]
+
+
+class PostSerializer(serializers.ModelSerializer):
+    author = serializers.StringRelatedField()
+
+    class Meta:
+        model = Post
+        fields = ['title',
+                  'publication_date',
+                  'author',
+                  'content',
+                  'status', ]

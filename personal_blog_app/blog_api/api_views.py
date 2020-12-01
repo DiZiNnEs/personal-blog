@@ -12,8 +12,9 @@ class PostsViewSet(viewsets.ViewSet):
         serializer = PostsSerializer(queryset, many=True)
         return Response(serializer.data)
 
-    def get_certain_post(self, request, pk):
+
+class PostViewSet(viewsets.ViewSet):
+    def get_post(self, request, pk):
         queryset = Post.objects.get(slug=pk)
         serializer = PostSerializer(queryset)
         return Response(serializer.data)
-
