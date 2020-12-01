@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog</title>
+    <link rel="shortcut icon" href="">
+</head>
+<body>
+
+<div id="getPosts">
+    <h1>Hello</h1>
+    {{ resultsOfResponse }}
+    {% verbatim %}
+        {{ resultsOfResponse }}
+    {% endverbatim %}
+</div>
+{% load static %}
+<script src="https://unpkg.com/vue@next"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="{% static 'js/getJsonResult.js' %}"></script>
+</body>
+</html>

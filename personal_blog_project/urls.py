@@ -22,4 +22,5 @@ from django.urls import (
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('personal_blog_app.blog_api.api_urls')),
+    path('', include('personal_blog_app.urls')),
 ]
