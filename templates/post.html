@@ -5,6 +5,22 @@
     <title>Post</title>
 </head>
 <body>
+{% load static %}
+<div id="post">
+    {% verbatim %}
+        {{ post }}
+    {% endverbatim %}
+</div>
 
+<div>
+    <p>Title: {{ post.title }}</p>
+    <p>Pub date: {{ post.publication_date }}</p>
+    <p>Author: {{ post.author }}</p>
+    <p>Content: {{ post.content }}</p>
+</div>
+
+<script src="https://unpkg.com/vue@next"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script type="module" src="{% static 'js/getPost.js' %}"></script>
 </body>
 </html>
