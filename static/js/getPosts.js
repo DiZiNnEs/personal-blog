@@ -4,20 +4,20 @@ import getDomainName from "./constants.js";
 const getJsonResponse = {
   data() {
     return {
-      resultsOfResponse: this.makeHttpRequest(),
+      posts: this.getPosts(),
       domainName: getDomainName(),
     };
   },
   methods: {
-    makeHttpRequest() {
+    getPosts() {
       axios
         .get(`${getDomainName()}/api/posts`)
-        .then(response => (this.resultsOfResponse = response.data))
+        .then(response => (this.posts = response.data))
         .catch(error => console.log(error));
     },
     getDomainNameToUrl (slug) {
       return `${getDomainName()}/post/${slug}`;
-    }
+    },
   },
 };
 
