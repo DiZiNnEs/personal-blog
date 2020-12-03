@@ -9,5 +9,5 @@ class HomeView(TemplateView):
 class PostView(TemplateView):
     template_name = 'post.html'
 
-    def get_context_data(self, **kwargs):
+    def get_context_data(self, **kwargs) -> dict[str: Post]:
         return {'post': Post.objects.get(slug=kwargs.get('pk'))}

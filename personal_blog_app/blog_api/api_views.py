@@ -6,26 +6,26 @@ from ..models import Post
 
 
 class PostsViewSet(viewsets.ViewSet):
-    def get_posts(self, request):
+    def get_posts(self, request) -> Response:
         try:
             return self.__get_posts()
         except Exception as ex:
             raise ex
 
-    def __get_posts(self):
+    def __get_posts(self) -> Response:
         queryset = Post.objects.all().order_by('-publication_date')
         serializer = PostsSerializer(queryset, many=True)
         return Response(serializer.data)
 
 
 class PostViewSet(viewsets.ViewSet):
-    def get_post(self, request, pk):
+    def get_post(self, request, pk) -> Response:
         try:
             return self.__get_post(pk)
         except Exception as ex:
             raise ex
 
-    def __get_post(self, pk):
+    def __get_post(self, pk) -> Response:
         queryset = Post.objects.get(slug=pk)
         serializer = PostSerializer(queryset)
         return Response(serializer.data)
