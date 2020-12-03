@@ -5,13 +5,12 @@ const getJsonResponse = {
   data() {
     return {
       posts: this.getPosts(),
-      domainName: getDomainName(),
     };
   },
   methods: {
     getPosts() {
       axios
-        .get(`${getDomainName()}/api/posts`)
+        .get(`/api/posts`)
         .then(response => (this.posts = response.data))
         .catch(error => console.log(error));
     },

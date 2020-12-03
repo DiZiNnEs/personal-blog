@@ -10,7 +10,7 @@ const Post = {
   methods: {
     getPost(slug) {
       axios
-        .get(`${getDomainName()}/api/post/${slug}`)
+        .get(`/api/post/${slug}`)
         .then(response => (this.posts = response.data))
         .catch(error => console.log(error));
     },
