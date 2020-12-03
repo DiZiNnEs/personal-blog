@@ -8,7 +8,7 @@ from ..models import Post
 
 class PostsViewSet(viewsets.ViewSet):
     def get_posts(self, request):
-        queryset = Post.objects.all()
+        queryset = Post.objects.all().order_by('-publication_date')
         serializer = PostsSerializer(queryset, many=True)
         return Response(serializer.data)
 
