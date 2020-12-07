@@ -1,26 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
+{% extends 'base.html' %}
+
+{% block head %}
     <title>Post</title>
-</head>
-<body>
-{% load static %}
-<div id="post">
-    {% verbatim %}
-        {{ post }}
-    {% endverbatim %}
-</div>
+{% endblock %}
 
-<div>
-    <p>Title: {{ post.title }}</p>
-    <p>Pub date: {{ post.publication_date }}</p>
-    <p>Author: {{ post.author }}</p>
-    <p>Content: {{ post.content }}</p>
-</div>
-
-<script src="https://unpkg.com/vue@next"></script>
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script type="module" src="{% static 'js/getPost.js' %}"></script>
-</body>
-</html>
+{% block body %}
+    <div>
+        <h1 class="text-primary">Title: {{ post.title }}</h1>
+        <h2 class="text-secondary">Content: {{ post.content }}</h2>
+        <h2 class="text-success">Author: {{ post.author }}</h2>
+        <h3 class="text-danger">Publication date: {{ post.publication_date }}</h3>
+    </div>
+{% endblock %}

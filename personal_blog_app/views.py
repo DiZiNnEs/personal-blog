@@ -11,3 +11,7 @@ class PostView(TemplateView):
 
     def get_context_data(self, **kwargs) -> dict[str: Post]:
         return {'post': Post.objects.get(slug=kwargs.get('pk'))}
+
+
+class AboutView(TemplateView):
+    template_name = 'about.html'

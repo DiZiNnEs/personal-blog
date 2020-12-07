@@ -1,25 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Blog</title>
-    <link rel="shortcut icon" href="">
-</head>
-<body>
+{% extends 'base.html' %}
 
-<div id="getPosts">
-    {% verbatim %}
-    <li v-for="post in posts" :key="item">
-        <h1><a v-bind:href="getDomainNameToUrl(post.slug)">{{ post.title }}</a></h1>
-        <h3>Author: {{ post.author }}</h3>
-        <h4>Pub date: {{ post.publication_date }}</h4>
-    </li>
-    {% endverbatim %}
-</div>
-{% load static %}
-<script src="https://unpkg.com/vue@next"></script>
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script type="module" src="{% static 'js/getPosts.js' %}"></script>
-<script type="module" src="{% static 'js/constants.js' %}"></script>
-</body>
-</html>
+{% block head %}
+    <title>Posts</title>
+    <style>
+        li {
+            list-style-type: none;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <div id="getPosts">
+        {% verbatim %}
+        <ul>
+            <li v-for="post in posts" :key="item">
+                <h2 class="display-2"><a v-bind:href="getDomainNameToUrl(post.slug)">{{ post.title }}</a></h2>
+                <h3>Author: {{ post.author }}</h3>
+                <h4>Pub date: {{ post.publication_date }}</h4>
+            </li>
+        </ul>
+        {% endverbatim %}
+    </div>
+
+{% endblock %}
